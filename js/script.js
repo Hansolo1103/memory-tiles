@@ -140,7 +140,7 @@ hacker.addEventListener('click', function (e) {
         let userClickedPattern = [];
         if (localStorage.length > 0) {
             var localScoreList = JSON.parse(localStorage.scoreList)
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < localScoreList.length; i++) {
                 positions[i].innerHTML = (i+1) + '. ' + localScoreList[i];
             }
         }
@@ -185,7 +185,7 @@ hacker.addEventListener('click', function (e) {
                     localStorage.setItem('scoreList', JSON.stringify(localScoreList));
                 }
                 localScoreList = JSON.parse(localStorage.scoreList)
-                for (let i = 0; i < 5; i++) {
+                for (let i = 0; i < localScoreList.length; i++) {
                     positions[i].innerHTML = (i+1) + '. ' + localScoreList[i];
                 }
                 leaderboardbtn.click();
