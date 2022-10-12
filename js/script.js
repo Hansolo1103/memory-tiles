@@ -177,7 +177,7 @@ hacker.addEventListener('click', function (e) {
             else {
                 playSound('wrong')
                 score.innerHTML = 'Game Over! Your Score is ' + ((level-1)*10 + (timeLeft));
-                localScoreList.push(((level-1)*10 + (timeLeft)));
+                localScoreList.push(((level-1)*25 + (timeLeft*2)));
                 localScoreList.sort();
                 localScoreList.reverse();
                 cancelTimer();
