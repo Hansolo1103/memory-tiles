@@ -100,6 +100,85 @@ normal.addEventListener("click", function (e) {
         } else {
           buttonDisabled(normalgrid, false);
           clearInterval(interval);
+
+hacker.addEventListener('click', function (e) {
+        normal.style.display = 'none'
+        hacker.style.display = 'none'
+        hackerpp.style.display = 'none'
+        title.innerHTML = 'Hacker Mode'
+        title.style.fontFamily = 'Amatic SC';
+        backbtn.style.display = 'block'
+        leaderboardbtn.style.display = 'block'
+        normalgameboard.style.display = 'none'
+        hackergameboard.style.display = 'flex'
+        start.style.display = 'flex'
+        let started = false;
+        let level = 0;
+        let gamePattern = [];
+        let userClickedPattern = [];
+        if (localStorage.length > 0) {
+            var localScoreList = JSON.parse(localStorage.scoreList)
+            for (let i = 0; i < localScoreList.length; i++) {
+                positions[i].innerHTML = (i+1) + '. ' + localScoreList[i];
+            }
+        }
+        if (localStorage.length == 0) {
+            localScoreList = [];
+        }
+        if (!started) {
+            start.onclick = function (e) {
+                start.style.display = 'none'
+                timerElm.style.display = 'block'
+                score.style.display = 'block'
+                startTimer();
+                score.innerHTML = 'Score: ' + level;
+                nextSequence();
+                started = true;
+                hackergameboard.onclick = function (e) {
+                    var userChosenColour = e.target.id;
+                    userChosenNum = parseInt(userChosenColour.split('-').pop());
+                    userClickedPattern.push(userChosenNum);
+                    checkAnswer(userClickedPattern.length - 1);
+                };
+            };
+        }       
+        function checkAnswer(currentLevel) {
+            if (gamePattern[currentLevel] === Number(userClickedPattern[currentLevel])) {
+                playSound('correct')
+                if (userClickedPattern.length === gamePattern.length){
+                    if (level>0) {
+                        score.innerHTML = 'Score: ' + ((level-1)*10 + (timeLeft));
+                    }
+                    nextSequence();
+                }
+            } 
+            else {
+                playSound('wrong')
+                score.innerHTML = 'Game Over! Your Score is ' + ((level-1)*10 + (timeLeft));
+                localScoreList.push(((level-1)*25 + (timeLeft*2)));
+                localScoreList.sort();
+                localScoreList.reverse();
+                cancelTimer();
+                for (let i = 0; i < localScoreList.length; i++) {
+                    localStorage.setItem('scoreList', JSON.stringify(localScoreList));
+                }
+                localScoreList = JSON.parse(localStorage.scoreList)
+                for (let i = 0; i < localScoreList.length; i++) {
+                    positions[i].innerHTML = (i+1) + '. ' + localScoreList[i];
+                }
+                leaderboardbtn.click();
+                timerElm.style.display = 'none'
+                start.style.display = 'flex'
+                startOver();
+            }
+    
+        function startOver() {
+            cancelTimer();
+            timeLeft = 60;
+            level = 0;
+            userClickedPattern = [];
+            gamePattern = [];
+            started = false;
         }
       }, 400);
     }
