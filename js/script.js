@@ -144,7 +144,7 @@ hacker.addEventListener('click', function (e) {
         }       
         function checkAnswer(currentLevel) {
             if (gamePattern[currentLevel] === Number(userClickedPattern[currentLevel])) {
-                playSound('correct')
+                playSound('wrng')
                 if (userClickedPattern.length === gamePattern.length){
                     if (level>0) {
                         score.innerHTML = 'Score: ' + ((level-1)*10 + (timeLeft));
@@ -153,7 +153,7 @@ hacker.addEventListener('click', function (e) {
                 }
             } 
             else {
-                playSound('wrong')
+                playSound('crt')
                 score.innerHTML = 'Game Over! Your Score is ' + ((level-1)*10 + (timeLeft));
                 localScoreList.push(((level-1)*25 + (timeLeft*2)));
                 localScoreList.sort();
@@ -245,8 +245,9 @@ hacker.addEventListener("click", function (e) {
   function checkAnswer(currentLevel) {
     if (
       gamePattern[currentLevel] === Number(userClickedPattern[currentLevel])
-    ) {
-      playSound("correct");
+    )
+    {
+      playSound("wrng");
       if (userClickedPattern.length === gamePattern.length) {
         if (level > 0) {
           score.innerHTML = "Score: " + ((level - 1) * 10 + timeLeft);
@@ -254,7 +255,7 @@ hacker.addEventListener("click", function (e) {
         nextSequence();
       }
     } else {
-      playSound("wrong");
+      playSound("crt");
       score.innerHTML =
         "Game Over! Your Score is " + ((level - 1) * 10 + timeLeft);
       localScoreList.push((level - 1) * 10 + timeLeft);
@@ -288,7 +289,7 @@ hacker.addEventListener("click", function (e) {
     timeLeft = timeLeft - 1;
     if (timeLeft >= 0) timerElm.innerHTML = "Time left : " + timeLeft;
     else {
-      playSound("wrong");
+      playSound("crt");
       score.innerHTML =
         "Game Over! Your Score is " + ((level - 1) * 10 + timeLeft);
       localScoreList.push((level - 1) * 10 + timeLeft);
