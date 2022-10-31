@@ -12,7 +12,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Pacifico", cursive;
-  font-size: 60px;
+  font-size: 30px;
   color: #fff;
   margin-left: auto;
   text-align: center;
@@ -26,7 +26,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: "Inconsolata", monospace;
-  font-size: 40px;
+  font-size: 50px;
   color: rgb(0, 0, 0);
   margin-left: auto;
   text-align: center;
@@ -61,7 +61,7 @@ body {
   top: 7%;
   text-align: center;
   line-height: 40px;
-  font-size: 20px;
+  font-size: 55px;
   cursor: pointer;
   background: transparent;
   color: #fff;
@@ -84,7 +84,7 @@ body {
   padding: 2%;
   border-radius: 30px;
   background: transparent;
-  font-size: 20px;
+  font-size: 55px;
   cursor: pointer;
   font-weight: bolder;
   color: #fff;
@@ -142,14 +142,14 @@ body {
 }
 
 .start-btn-normal {
-  font-size: 17px;
+  font-size: 55px;
   display: none;
   padding-top: 12px;
   padding-bottom: 12px;
 }
 
 .timer {
-  font-size: 33px;
+  font-size: 55px;
   font-family: "Inconsolata", monospace;
   font-weight: bolder;
   color: rgb(255, 255, 255);
@@ -199,13 +199,13 @@ body {
 
 @media screen and (max-width: 800px) and (min-width: 600px) {
   .title {
-    font-size: 50px;
+    font-size: 55px;
     top: 15%;
     left: 50%;
   }
   .score {
     margin-top: 12%;
-    font-size: 30px;
+    font-size: 55px;
   }
   .modes {
     flex-direction: column;
@@ -256,7 +256,7 @@ body {
 
 @media screen and (max-width: 600px) {
   .title {
-    font-size: 50px;
+    font-size: 40px;
     top: 15%;
     left: 50%;
   }
@@ -323,7 +323,7 @@ body {
 
 @media screen and (max-width: 400px) {
   .title {
-    font-size: 50px;
+    font-size: 80px;
     top: 14%;
     left: 50%;
   }
@@ -395,7 +395,7 @@ body {
 }
 .custom-model-wrap {
   font-family: "Merriweather Sans", sans-serif;
-  font-size: 30px;
+  font-size: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -424,7 +424,7 @@ body {
 }
 .ld {
   font-family: "IBM Plex Serif", serif;
-  font-size: 22px;
+  font-size: 24px;
 }
 .model-open .custom-model-inner {
   -webkit-transform: translate(0, 0);
@@ -457,7 +457,7 @@ body {
   top: -30px;
   cursor: pointer;
   z-index: 99;
-  font-size: 30px;
+  font-size: 80px;
   color: #fff;
 }
 
