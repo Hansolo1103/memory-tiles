@@ -67,6 +67,9 @@ normal.addEventListener("click", function (e) {
           }
           setTimeout(function () {
             nextSequence();
+            normalgameboard.addEventListener('mouseover',function(z){
+              normalgameboard.style.cursor='none';
+            })
           }, 1000);
         } else {
           setTimeout(function () {
